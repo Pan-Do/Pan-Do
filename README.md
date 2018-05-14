@@ -82,13 +82,13 @@ This is how the middleware tells the GUI that it has finished passing what info 
 The middleware utilizes an execution queue and a max ping limit to allow it to control how many times the server is pinged.  Since the Todoist API limits the amount of sync requests per minute to 50, and the API we are using to talk to the Todoist API does a sync almost every time a method is called, we keep track of how many pings happen within a minute, and if it approaches 50, it will halt the queue and tell the GUI to inform the user to wait.  After a minute has passed it will reset the counter to 0 and tell the GUI to resume.
 
 ## GUI
-The GUI is built with the intention of keeping it completely seperate from middleware class. The GUI class needs to take in all of the required listeners in order to be able to notify the middleware when an action is performed so that the middleware can take the necessary actions needed to keep the todoist servers up to day. This particular GUI runs using tkinter exclusively. It does not user ttk even though there are some files here that are titled as such they are not used when running main.py 
+The GUI is built with the intention of keeping it completely seperate from middleware class. The GUI class needs to take in all of the required listeners in order to be able to notify the middleware when an action is performed so that the middleware can take the necessary actions needed to keep the todoist servers up to day. This particular GUI runs using tkinter exclusively. It does not user ttk even though there are some files here that are titled as such they are not used when running [main.py](src/main/main.py) 
 
 There are two main classes present in this GUI. The tkGUI and TaskCanvas classes. tkGUI acts as the manager of root TK() object that is its passed, as well as all of the TaskCanvas objects that it creates to handle the tasks themselves.
 
 ### tkGui
 tkGui is the class that manages the TK window object as well as all of the TaskCanvas objects. For the most part it also handles the notification of the middleware when events occur on the GUI. tkGui keeps track of the order of the tasks, the TaskCanvas' it has created and all of the TaskCanvas' that have reported that they are selected.
 ### TaskCanvas
-TaskCanavas inherits from the tkinter Canvas widget and the DragDropWidget that is defined right above it in the TkinterGui.py file. The DragDropWidget does exactly as the name implies. It implements the Drag and Drop functionality present in the application. 
+TaskCanavas inherits from the tkinter Canvas widget and the DragDropWidget that is defined right above it in the [TkinterGui.py](src/main/TkinterGui.py) file. The DragDropWidget does exactly as the name implies. It implements the Drag and Drop functionality present in the application. 
 
 The TaskCanvas class has the responsibility of managing a single task to be displayed on the window. Upon initialization the TaskCanvas takes in a number of functions. These functions are either a listener or a method given to it by the creator to call when a particular event occurs.
