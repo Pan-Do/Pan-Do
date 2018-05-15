@@ -28,7 +28,7 @@ Desktop widget for Windows 10 based on Todoist api.
 >6. If you need to edit a task, select "Edit", then perform the editing.   
 ![](screenshots/Figure_4.png)
 
->7. Right click on either "Add Task" bar on the top, or on the title bar.  
+>7. Right click on anywhere but the tasks.  
 ![](screenshots/Figure_5.png)
 
 >8. To force sync, click "Sync".
